@@ -1,63 +1,37 @@
-
-#ifndef ROBOTPART_H
-#define ROBOTPART_H
-#include "part_type.h"
-#include "RobotModel.h"
-
+#ifndef ROBOT_PART_H
+#define ROBOT_PART_H
 
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class RobotPart {
-public:
-    RobotPart(string part_name,
-              int part_number,
-              partTypes part_types, 
-              double part_weight,
-              double part_cost,
-              string part_description, 
-	      string part_image_filename):
-
-
-            name(part_name),
-            partNumber(part_number),
-            partTypes(part_types), 
-            weight(part_weight),
-            cost(part_cost),
-            description(part_description),
-	    imageFilename(part_image_filename) { }
-
-
-    virtual string to_string();
-
-    virtual int getMaxSpeed() { rgeteturn 0;};
-
-    friend ostream& operator<<(ostream& a, RobotPart& b);
-
-
-    string get_p_name() { return name;};
-    int    get_p_number() { return partNumber;};
-    double get_p_weight() { return weight;};
-    double get_p_cost() { return cost;};
-    string get_p_description() {return description;
-    string get_p_imageFilename() {return imageFilename;}};
-
-   const partTypes &getpartTypes() const { return partTypes; }
-
-
-    class Invalid_part { };
-
+class robot_part
+{
 protected:
     string name;
-    int partNumber;
-    partTypes part_types; 
-    double weight;
+    int model_number;
     double cost;
     string description;
-    string imageFilename;
-};
-#endif //ROBOTPART_H
+    string image_filename;
 
-   
+public:
+    robot_part (string name,
+                int model_number,
+                double cost,
+                string description,
+                string image_filename) :
+
+    name(name),
+    model_number(model_number),
+    cost(cost),
+    description(description),
+    image_filename(image_filename) {}
+    
+};
+
+#endif
+
+
+
+

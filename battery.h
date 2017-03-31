@@ -1,43 +1,35 @@
-#ifndef ROBBYROBOT_BATTERY_H
-#define ROBBYROBOT_BATTERY_H
+#ifndef ROBOT_BATTERY_H
+#define ROBOT_BATTERY_H
 
-//#include "ComponetType.h"
+#include <iostream>
+#include <string>
 #include "robot_part.h"
-#include "part_types.h"
-#include <string.h>
 
 
-class Battery: public RobotPart {
+class Battery : public robot_part
+{
+    friend class Robot_model;
+
+private:
+    double power_available;
+    double max_energy;
+
 public:
-    Battery(int robot_energy,
-            int robot_maxPower,
-            string get_robot_name,
-            int get_partNumber,
-            partTypes part_Types, 
-            double get_weight,
-            double get_cost,
-            string get_description
-    ):
+    Battery (string name,
+             int model_number,
+             double cost,
+             string description,
+             string image_filename,
+             double power_available,
+             double max_energy) :
 
-            energy(robot_energy),
-            maxPower(robot_maxPower),
-
-            RobotPart(get_robot_name ,
-                      get_partNumber,
-                      robot_componentType, 
-                      get_weight,
-                      get_cost,
-                      get_description) {}
-
-// Getters
-    int getEnergy() const { return energy; }
-    int getPowerBurn() const { return PowerBurn;}
-
-protected:
-    int energy;
-    int PowerBurn;
-
-
+    robot_part(name,
+               model_number,
+               cost, description,
+               image_filename),
+    power_available(power_available), 
+    max_energy(max_energy) {}
+    
 };
 
-#endif //ROBBYROBOT_BATTERY_H
+#endif

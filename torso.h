@@ -1,49 +1,37 @@
-#ifndef ROBBYROBOT_TORSO_H
-#define ROBBYROBOT_TORSO_H
-#include <vector>
-#include <string.h>
+#ifndef ROBOT_TORSO_H
+#define ROBOT_TORSO_H
+
+#include <iostream>
+#include <string>
 #include "robot_part.h"
-#include "part_types.h"
-#include "head.h"
-#include "arm.h"
-#include "locomotor.h"
-#include "battery.h"
 
-class Torso: public RobotPart {
+using namespace std;
+
+class Torso : public robot_part
+{
+    friend class Robot_model;
+
+private:
+    int battery_compartments;
+    int max_arms;
+
 public:
-    Torso(  int t_battery_compartments,
-            string get_robot_name,
-            int get_partNumber,
-            partTypes part_types,
-            double get_weight,
-            double get_cost,
-            string get_description
-    ):
+    Torso (string name,
+           int model_number,
+           double cost,
+           string description,
+           string image_filename,
+           int battery_compartments,
+           int max_arms) :
 
-
-            batteryCompartments(t_battery_compartments),
-            RobotPart(get_robot_name ,
-                      get_partNumber,
-                      robot_componentType,
-                      get_weight,
-                      get_cost,
-                      get_description) {}
-
-    // Getters
-    //Methods
-
-    void setBatteryCompartments(int batteryCompartments) {
-        Torso::batteryCompartments = batteryCompartments;
-    }
-
-
-protected:
-    int batteryCompartments;
-
-
-
-
+    robot_part(name,
+               model_number,
+               cost,
+               description,
+               image_filename),
+               battery_compartments(battery_compartments),
+               max_arms(max_arms) {}
+    
 };
 
-
-#endif //ROBBYROBOT_TORSO_H
+#endif

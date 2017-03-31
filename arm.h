@@ -1,43 +1,35 @@
+#ifndef ARM_H
+#define ARM_H
 
-#ifndef ROBOT_ARM_H
-#define ROBOT_ARM_HS
-#include "robot_part.h"
-#include "part_types.h"
+#include <iostream>
 #include <string>
+#include "robot_part.h"
 
+using namespace std;
 
-class Arm : public RobotPart {
+class Arm : public robot_part
+{
+    friend class Robot_model;
+
+private:
+    double max_power;
+
 public:
-    Arm(int robot_energy,
-            int robot_maxPower,
-            string get_name =  ,
-            int get_partNumber,
-            partTypes part_Types, 
-            double get_weight,
-            double get_cost,
-            string get_description
-    ):
+    Arm (string name,
+         int model_number,
+         double cost,
+         string description,
+         string image_filename,
+         double max_power) :
 
-            energy(robot_energy),
-            maxPower(robot_maxPower),
-
-            RobotPart(get_name ,
-                      get_partNumber,
-                      component_type, 
-                      get_weight,
-                      get_cost,
-                      get_description) {}
-    // Getters
-
-    int get_maxPower () const {return energy;}
-    int get_powerBrun() const { return power_Burn;}
-
-protected:
-    int max_power;
-
-
-
-
-
+    robot_part(name,
+               model_number,
+               cost,
+               description,
+               image_filename), 
+    max_power(max_power) {}
+    
+    
 };
-#endif //ROBOT_ARM_H
+
+#endif

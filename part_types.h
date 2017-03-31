@@ -1,12 +1,12 @@
-#ifndef ROBOT_PART_TYPES_H
-#define ROBOT_PART_TYPES_H
+#ifndef PART_TYPES_H
+#define PART_TYPES_H
 
 #include "string"
-//#include "std_lib_facilities.h"
+#include "std_lib_facilities.h"
 
-class partTypes {
+class PartTypes {
 public:
-    partTypes(int val) : value(val) { }
+    PartTypes(int val) : value(val) { }
 
     static const int head = 0;
     static const int locomotor = 1;
@@ -25,12 +25,12 @@ public:
             case(arm):return "arm";
             default: return "UNKNOWN";
         }
-    }
-private:
-    int value;
-};
 
+    private:
+        int value;
+    };
 
-
-
-#endif //ROBOT_PART_TYPES_H 
+    
+    
+    
+#endif

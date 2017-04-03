@@ -1,8 +1,9 @@
 #ifndef PART_TYPES_H
 #define PART_TYPES_H
+#include <iostream>
+#include <string>
 
-#include "string"
-#include "std_lib_facilities.h"
+using namespace std;
 
 class PartTypes {
 public:
@@ -14,9 +15,9 @@ public:
     static const int battery = 3;
     static const int arm = 4;
 
-    static const int num_types = 5;
+    //static const int num_types = 5;
 
-    string to_string() {
+ string to_string() {
         switch(value) {
             case(head):return "head";
             case(locomotor):return "locomotor";
@@ -25,7 +26,7 @@ public:
             case(arm):return "arm";
             default: return "UNKNOWN";
         }
-
+	}
     private:
         int value;
     };

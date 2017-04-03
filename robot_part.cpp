@@ -1,11 +1,13 @@
+#ifdef _MSC_VER
+#include"stdafx.h"
+#endif
 #include "robot_part.h"
-#include "robot_model.h"
-#include "part_types.h"
-//#include "lib_facilities.h"
 #include <string>
 #include <iostream>
 
 using namespace std;
+
+ostream& operater<<(ostream& os,robot_part& rp);
 
 string robot_part::to_string() {
 string robot =  "  " + name + ": " + description + " Type is "+part_types.to_string() ;
@@ -15,7 +17,7 @@ string robot =  "  " + name + ": " + description + " Type is "+part_types.to_str
 
 
 
-ostream& operator<<(ostream& a, robot_part& b) {
-    a << b.to_string();
-    return a;
+ostream& operator<<(ostream& os, robot_part& rp) {
+   os << rp.to_string();
+    return os;
 }

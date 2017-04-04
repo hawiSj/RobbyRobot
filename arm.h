@@ -4,12 +4,14 @@
 #include <iostream>
 #include <string>
 #include "robot_part.h"
+#include "part_types.h"
 
 using namespace std;
 
 class Arm : public robot_part
 {
     friend class Robot_model;
+
 
 private:
     double max_power;

@@ -15,7 +15,7 @@ public:
     static const int battery = 3;
     static const int arm = 4;
 
-    //static const int num_types = 5;
+    static const int num_types = 5;
 
  string to_string() {
         switch(value) {
